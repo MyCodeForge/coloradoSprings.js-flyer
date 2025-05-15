@@ -2,6 +2,8 @@
 
 ![coloradoSprings.js Logo](./assets/JS%20CO%20Flag.png)
 
+[Desktop Preview](./preview/coloradoSprings.js-desktop.png) | [Mobile Preview](./preview/coloradoSprings.js-mobile.png)
+
 A modern, responsive landing page for the Colorado Springs JavaScript community. This website serves as the central hub for our meetup information, community engagement, and event details.
 
 ## 🌟 Features
