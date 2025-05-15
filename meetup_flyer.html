@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Colorado Springs JavaScript Meetup - A community for JavaScript developers, web enthusiasts, and tech professionals">
+  <meta name="keywords" content="JavaScript, Web Development, Colorado Springs, Tech Meetup, Coding">
+  <meta property="og:title" content="Colorado Springs JavaScript Meetup">
+  <meta property="og:description" content="Join our community of JavaScript enthusiasts in Colorado Springs">
+  <meta property="og:type" content="website">
+  <title>coloradoSprings.js</title>
+  <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="8" fill="%23002868"/><text x="50" y="50" text-anchor="middle" dominant-baseline="central" font-family="system-ui, -apple-system, sans-serif" font-weight="bold" font-size="60" fill="white">JS</text></svg>'>
+  <link rel="icon" type="image/png" href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAArNJREFUWEftl01IVFEUx3/nvWmaaZwxndGxj6lJEgMXFUhF0SaCIIiWQRBBq2hVq6BVLVq0adGiRasWQdCXBFEQFUFEH0QFWTpNk6YVmM0wNjrNvHvjHJh5+ZzxvTejbRo4m/fuPef87/+ce8+5V1hrLf8xhP8A/jmBSCTC1NQU2WyWYDBIQ0MDgUDgj0lYa5mcnGR2dpZQKERjYyOVlZWrA5BSMjw8zODgIFJKrLUopaitraWrq4v6+vqyQMbGxhgYGEBrjVIKYwxaa7q7u2lpafEHkM/n6evrY2FhAaUUxhjXQQghEEIQj8fp6OhwWSwXY2NjDA0NIYQoOjTGIKWko6ODWCz2E4AQgtHRUSYmJjDGYK11f845stZiraW/v5+qqioSiQTBYHBZEGstIyMjjI+Pu/aFz0II0uk0vb29NDc3U1VVxfz8PFprQqEQsViMcDhcBDA9Pc3AwADGGBfZK2StxRjD4OAger2hra0NpRTZbJaZmRmy2SxKKYLBINFolEgk4mbHWsv09DTDw8Nks1mUUhhjlrQvpGNubo6enh7i8bg/gHQ6TV9fH/l8HqWUm0qvtNYaYwzWWqSUJBIJmpqaXICpqSn6+/uRUhYBeNvn83nm5+fx9QqstWQyGR48f8mjV2/QWvPo7g3OHD9YpL0xhng8TjKZxBjD7Ows/f39ZDIZlFJFzqWUGGNQSvn3Aa01V27f48nLV+jcN2Zmv3L5wnlOnzhU5NwYQzQaJZlMYq3l8+dPvHj7jk9fvpLevp2j+3azY+sWz7T0GQVCCBYWFrh68y4Dw+/RuW+ICHQuy9VL3Rw7uL+kqRCCXC7H23cf+RCGK2dPsXvndoQQvgCKvMIv7QvSWvsFKAVbzv+yALxR4D0Kb5p5o6CcY1jJxrIA/gQBvwDlnIJyAL4DJHqMIJh+WiMAAAAASUVORK5CYII=' sizes="32x32">
+  <style>
+    :root {
+      /* Colorado flag colors */
+      --color-blue: #002868;
+      --color-red: #e52e3d;
+      --color-gold: #ffcc00;
+      --color-white: #ffffff;
+      
+      /* UI colors */
+      --color-bg: #f0f0f0;
+      --color-text: #333333;
+      --color-text-light: #666666;
+      
+      /* Spacing */
+      --spacing-xs: 0.5rem;
+      --spacing-sm: 1rem;
+      --spacing-md: 1.5rem;
+      --spacing-lg: 2rem;
+      
+      /* Border radius */
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      
+      /* Shadows */
+      --shadow-card: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Reset & Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+    }
+
+    /* Layout */
+    .container {
+      max-width: 850px;
+      margin: 0 auto;
+      background-color: var(--color-white);
+      box-shadow: var(--shadow-card);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    .header {
+      background-color: var(--color-blue);
+      color: var(--color-white);
+      padding: var(--spacing-lg);
+      text-align: center;
+      position: relative;
+    }
+
+    .content {
+      padding: var(--spacing-lg);
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: var(--spacing-lg);
+    }
+
+    @media (max-width: 768px) {
+      .content {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Typography */
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+    }
+
+    h2 {
+      color: var(--color-blue);
+      border-bottom: 3px solid var(--color-red);
+      padding-bottom: var(--spacing-xs);
+      margin-top: 0;
+      margin-bottom: var(--spacing-md);
+    }
+
+    /* Components */
+    .js-logo {
+      font-size: 1.5rem;
+      background-color: var(--color-white);
+      color: var(--color-blue);
+      padding: var(--spacing-xs);
+      border-radius: var(--radius-sm);
+      display: inline-block;
+      margin-right: var(--spacing-xs);
+      font-weight: bold;
+    }
+
+    .next-event {
+      background-color: var(--color-red);
+      color: var(--color-white);
+      padding: var(--spacing-md) var(--spacing-lg);
+      text-align: center;
+      font-size: 1.3rem;
+    }
+
+    .next-event span {
+      color: var(--color-gold);
+      font-weight: bold;
+    }
+
+    .details ul {
+      padding-left: 1.5rem;
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .details li {
+      margin-bottom: var(--spacing-sm);
+      font-size: 1.1rem;
+    }
+
+    .featured {
+      font-weight: 600;
+      background-color: rgba(255, 204, 0, 0.2);
+      padding: var(--spacing-xs) var(--spacing-sm);
+      border-radius: var(--radius-sm);
+    }
+
+    .welcome {
+      margin-bottom: var(--spacing-lg);
+      font-size: 1.2rem;
+    }
+
+    .highlight {
+      color: var(--color-white);
+      background-color: var(--color-blue);
+      padding: 0.2rem 0.4rem;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+    }
+
+    /* QR Section */
+    .qr-section {
+      text-align: center;
+    }
+
+    .qr-code {
+      background-color: var(--color-white);
+      border-radius: var(--radius-md);
+      padding: var(--spacing-sm);
+      margin: 0 auto var(--spacing-md);
+      box-shadow: var(--shadow-sm);
+      width: 180px;
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .qr-code img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .qr-section ul {
+      list-style-type: none;
+      margin: var(--spacing-md) 0;
+    }
+
+    .qr-section li {
+      margin-bottom: var(--spacing-xs);
+    }
+
+    .qr-section li::before {
+      content: "•";
+      margin-right: var(--spacing-xs);
+      color: var(--color-blue);
+    }
+
+    /* Links */
+    .qr-links {
+      padding-top: var(--spacing-md);
+      padding-bottom: var(--spacing-lg);
+    }
+    .discord, .meetup {
+      font-weight: bold;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--spacing-xs);
+    }
+
+    .discord {
+      color: var(--color-blue);
+    }
+
+    .meetup {
+      color: var(--color-red);
+    }
+
+    .qr-section .discord::before {
+      content: url('./assets/discord.svg');
+      width: 16px;
+      height: 16px;
+      display: inline-block;
+    }
+
+    .qr-section .meetup::before {
+      content: '';
+      background-image: url('./assets/meetup.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 16px;
+      height: 16px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: var(--color-bg);
+      padding: var(--spacing-sm) var(--spacing-lg);
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--color-text-light);
+    }
+
+    /* Accessibility Improvements */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-bg: #1a1a1a;
+        --color-text: #ffffff;
+        --color-text-light: #cccccc;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header" role="banner">
+      <h1><span class="js-logo" aria-label="JavaScript">JS</span> coloradoSprings.js</h1>
+      <p>Connect. Learn. Code. Build.</p>
+    </header>
+    
+    <div class="next-event" role="complementary">
+      Join us for our next meetup: <span>May 28th at 6:00 PM</span> at Epic Central
+    </div>
+    
+    <main class="content" role="main">
+      <section class="details">
+        <div class="welcome">
+          We're a community of JavaScript enthusiasts of <span class="highlight">all skill levels</span> - from beginners to senior engineers, hobbyists to job seekers. Join us to learn, share knowledge, and build connections in the Colorado Springs tech scene!
+        </div>
+        
+        <h2>What We Offer</h2>
+        <ul>
+          <li><strong>Monthly Meetups</strong> - Every last Wednesday with beginner-friendly talks and deeper technical discussions</li>
+          <li><strong>Community Projects</strong> - Collaborate on real-world projects like our group website</li>
+          <li><strong>Networking</strong> - Connect with local developers, mentors, and potential employers</li>
+          <li><strong>Learning Opportunities</strong> - Lightning talks, workshops, and hack nights</li>
+          <li><strong>Support System</strong> - Get help, share resources, and grow your skills</li>
+          <li class="featured">Perfect for anyone interested in JavaScript, React, Next.js, and modern web development!</li>
+        </ul>
+        
+        <h2>Get Involved</h2>
+        <ul>
+          <li>Attend our monthly meetups</li>
+          <li>Join ongoing projects</li>
+          <li>Share your knowledge by giving a talk</li>
+          <li>Help organize future events</li>
+          <li>Connect with us on Discord for ongoing discussions</li>
+        </ul>
+      </section>
+      
+      <aside class="qr-section" role="complementary">
+        <div>
+          <h2>Join Us Online</h2>
+          <div class="qr-code">
+            <img src="./assets/JS_COS.png" alt="QR Code to join our Discord and Meetup communities" width="180" height="180" />
+          </div>
+          <p><strong>Scan to join our community!</strong></p>
+          <div class="qr-links">
+            <p>
+              <span class="discord">Discord:</span><br>
+              <a href="https://discord.gg/ehcPRs8A" target="_blank" rel="noopener noreferrer">discord.gg/ehcPRs8A</a>
+            </p>
+            <p>
+              <span class="meetup">Meetup:</span><br>
+              <a href="https://www.meetup.com/coloradospringsjs/" target="_blank" rel="noopener noreferrer">meetup.com/coloradospringsjs</a>
+            </p>
+          </div>
+        </div>
+        <div>
+          <h2>Who Should Join?</h2>
+          <ul>
+            <li>JavaScript developers</li>
+            <li>Web developers</li>
+            <li>Students learning to code</li>
+            <li>Tech professionals</li>
+            <li>Career changers</li>
+            <li>Coding enthusiasts</li>
+          </ul>
+        </div>
+      </aside>
+    </main>
+    
+    <footer class="footer" role="contentinfo">
+      coloradoSprings.js is a community-driven group for everyone interested in JavaScript and web development.
+    </footer>
+  </div>
+</body>
+</html>
