@@ -248,11 +248,71 @@
       }
     }
 
+    /* Dark Mode Styles */
     @media (prefers-color-scheme: dark) {
       :root {
+        /* Update color variables for dark mode */
         --color-bg: #1a1a1a;
-        --color-text: #ffffff;
-        --color-text-light: #cccccc;
+        --color-text: #e0e0e0;
+        --color-text-light: #bbbbbb;
+        --shadow-card: 0 4px 6px rgba(0, 0, 0, 0.3);
+        --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+      
+      /* Container background in dark mode */
+      .container {
+        background-color: #2a2a2a;
+      }
+      
+      /* Header remains the same */
+      
+      /* Adjust QR code background for dark mode */
+      .qr-code {
+        background-color: #ffffff; /* Keep white background for QR code */
+      }
+      
+      /* Headings in dark mode */
+      h2 {
+        color: #5a91e5; /* Lighter blue for dark mode */
+      }
+      
+      /* Featured items background in dark mode */
+      .featured {
+        background-color: rgba(255, 204, 0, 0.15);
+        color: #f0f0f0;
+      }
+      
+      /* Discord/Meetup links in dark mode */
+      .discord {
+        color: #7289da; /* Discord blue */
+      }
+      
+      .meetup {
+        color: #e95252; /* Brighter red for dark mode */
+      }
+      
+      /* Links in dark mode */
+      a {
+        color: #66b2ff;
+      }
+      
+      a:hover {
+        color: #99ccff;
+      }
+      
+      /* Footer in dark mode */
+      .footer {
+        background-color: #222222;
+      }
+      
+      /* QR section bullet points */
+      .qr-section li::before {
+        color: #5a91e5; /* Lighter blue for dark mode */
+      }
+      
+      /* Highlight background */
+      .highlight {
+        background-color: #1a4892; /* Darker blue for dark mode */
       }
     }
   </style>
