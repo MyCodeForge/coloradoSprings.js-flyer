@@ -1,0 +1,6 @@
+{
+  "routes": [
+    { "src": "/", "dest": "/meetup_flyer.html" },
+    { "handle": "filesystem" }
+  ]
+}
